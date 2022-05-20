@@ -17,11 +17,12 @@ app.get("/", (req, res) => {
 app.get("/api/locations", async (req, res) => {
   const result = await locationRepository.getLocations();
   res.send(result);
-  // const location = req.params.locationName;
-  // res.send(waterlevel);
 });
 
-// JASON STUFF BELOW
+app.get("/api/locations/:location", async (req, res) => {
+  const result = await locationRepository.getALocation(req.params.location);
+  res.send(result);
+});
 
 app.get("/water-depth", (req, res) => {
   const location = req.params.locationName;
