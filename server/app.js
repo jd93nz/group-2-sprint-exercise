@@ -11,6 +11,29 @@ app.get("/", (req, res) => {
   res.send("Hello World !");
 });
 
+// JEFF STUFF BELOW
+
+app.get("/api/locations", (req, res) => {
+  res.send({
+    locations: [
+      {
+        title: "Dunedin",
+        lat: 123,
+        lng: 321,
+      },
+      {
+        title: "Auckland",
+        lat: 666,
+        lng: 555,
+      },
+    ],
+  });
+  // const location = req.params.locationName;
+  // res.send(waterlevel);
+});
+
+// JASON STUFF BELOW
+
 app.get("/water-depth", (req, res) => {
   const location = req.params.locationName;
   res.send(waterlevel);
@@ -28,4 +51,5 @@ app.get("/water-depth/:locationName/:timeOption", (req, res) => {
     `Water level of ${req.params.locationName} on ${req.params.timeOption}`
   );
 });
+
 module.exports = app;
