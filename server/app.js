@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const waterlevel = require("./water-level.json");
+const locationRepository = require("./location.repository");
 
 app.use(cors());
 app.use(express.json());
@@ -13,21 +14,9 @@ app.get("/", (req, res) => {
 
 // JEFF STUFF BELOW
 
-app.get("/api/locations", (req, res) => {
-  res.send({
-    locations: [
-      {
-        title: "Dunedin",
-        lat: 123,
-        lng: 321,
-      },
-      {
-        title: "Auckland",
-        lat: 666,
-        lng: 555,
-      },
-    ],
-  });
+app.get("/api/locations", async (req, res) => {
+  const result = await locationRepository.getLocations();
+  res.send(result);
   // const location = req.params.locationName;
   // res.send(waterlevel);
 });
