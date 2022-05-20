@@ -2,7 +2,7 @@ BEGIN TRANSACTION;
 
 CREATE TABLE location (
     id SERIAL PRIMARY KEY,
-    title TEXT,
+    name TEXT,
     lat float,
     lng float
 );
