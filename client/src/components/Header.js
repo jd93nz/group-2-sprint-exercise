@@ -7,10 +7,7 @@ function Header() {
       <nav>
         <ul className={styles.navlist}>
           <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
+            <a href="http://localhost:3000">Home</a>
           </li>
         </ul>
       </nav>
