@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 
-function SearchBar({ placeholder, location }) {
+const LocationData = ({ name, lat, lng }) => {
+  return `${name || ""}, ${lat || ""}, ${lng || ""}`;
+};
+
+const SearchBar = ({ placeholder, location }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [focused, setFocused] = useState(false);
   const [wordEntered, setWordEntered] = useState("");
+  const [selected, setSelected] = useState({});
+
+  const onClick = (value) => () => {
+    setSelected(value);
+  };
   const onBlur = () => {
     if (focused) {
       setTimeout(() => {
@@ -49,15 +58,17 @@ function SearchBar({ placeholder, location }) {
         <div className="dataResult">
           {filteredData.map((value, key) => {
             return (
-              <button className="dataItem" key={key}>
+              <button className="dataItem" key={key} onClick={onClick(value)}>
                 {value.name}
               </button>
             );
           })}
         </div>
       )}
+      <div>City, Latitude, Longitude</div>
+      <div>{LocationData(selected)}</div>
     </div>
   );
-}
+};
 
 export default SearchBar;
