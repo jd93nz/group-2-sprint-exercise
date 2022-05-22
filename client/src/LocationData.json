@@ -1,8 +1,0 @@
-[
-  { "name": "Beach 1", "link": "http://localhost:3000/beach1" },
-  { "name": "Beach 2", "link": "http://localhost:3000/beach2" },
-  { "name": "Beach 3", "link": "http://localhost:3000/beach3" },
-  { "name": "Beach 4", "link": "http://localhost:3000/beach4" },
-  { "name": "Beach 5", "link": "http://localhost:3000/beach5" },
-  { "name": "Beach 6", "link": "http://localhost:3000/beach6" }
-]
