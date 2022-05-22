@@ -53,10 +53,10 @@ input:focus {
 .dataItem p {
   margin-left: 10px;
 }
-a {
+button {
   text-decoration: none;
 }
 
-a:hover {
+button:hover {
   background-color: lightgrey;
 }
