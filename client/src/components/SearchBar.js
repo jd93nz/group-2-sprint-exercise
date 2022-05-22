@@ -5,16 +5,18 @@ function SearchBar({ placeholder, location }) {
   const [filteredData, setFilteredData] = useState([]);
   const [focused, setFocused] = useState(false);
   const [wordEntered, setWordEntered] = useState("");
-  const onBlur = () => setFocused(false);
-
-  const handleFocus = () => {
-    setFocused(true);
-    setFilteredData(location);
+  const onBlur = () => {
+    if (focused) {
+      setTimeout(() => {
+        setFocused(false);
+      }, 200);
+    }
   };
 
-  const handleClick = (e) => {
+  const handleFocus = (e) => {
     e.preventDefault();
-    console.log("The link was clicked.");
+    setFocused(true);
+    setFilteredData(location);
   };
 
   const handleFilter = (event) => {
@@ -47,9 +49,9 @@ function SearchBar({ placeholder, location }) {
         <div className="dataResult">
           {filteredData.map((value, key) => {
             return (
-              <a className="dataItem" href={"/"} key={key}>
-                <p>{value.name} </p>
-              </a>
+              <button className="dataItem" key={key}>
+                {value.name}
+              </button>
             );
           })}
         </div>

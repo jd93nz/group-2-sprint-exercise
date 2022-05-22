@@ -13,8 +13,6 @@ const LocationPage = () => {
     fetchData();
   }, []);
 
-  console.log(location);
-
   return (
     <div>
       <SearchBar placeholder="Enter a location" location={location} />
