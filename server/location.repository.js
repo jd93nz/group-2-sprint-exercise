@@ -12,7 +12,7 @@ module.exports = {
 
   getALocation: async (location) => {
     try {
-      const { rows } = await db.query(`SELECT * FROM location WHERE title=$1`, [
+      const { rows } = await db.query(`SELECT * FROM location WHERE name=$1`, [
         location,
       ]);
       return rows;

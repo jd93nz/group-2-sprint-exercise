@@ -1,4 +1,5 @@
 INSERT INTO location (id,
+                      waterDepth,
                       name,
                       lat,
                       lng)

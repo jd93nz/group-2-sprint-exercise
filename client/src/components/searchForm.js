@@ -1,57 +1,32 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 
-const SearchForm = () => {
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
-  const [location, setLocation] = useState([]);
-  const handleDateChange = (e) => {
-    setDate(e.target.value);
-  };
-  const handleTimeChange = (e) => {
-    setTime(e.target.value);
-  };
-  const handleLocationChange = (e) => {
-    setLocation(e.target.value);
-  };
-
+const SearchForm = ({ setDate, setTime, setLocation, setLoading }) => {
   return (
     <div>
       <form htmlFor="search" action="localhost:5001/api" method="POST">
         <label htmlFor="location">
           Choose Your Location
-          <select id="location" name="location" onChange={handleLocationChange}>
+          <select id="location" name="location" onChange={setLocation}>
             <option value="null">Null</option>
             <option value="Dunedin">Dunedin</option>
             <option value="Auckland">Auckland</option>
-            <option value="Christchurch-out">Christchurch</option>
+            <option value="Christchurch">Christchurch</option>
             <option value="Wellington">Wellington</option>
           </select>
         </label>
         <label htmlFor="date">
           Choose your date
-          <input
-            name="date"
-            id="date"
-            type="date"
-            onChange={handleDateChange}
-          />
+          <input name="date" id="date" type="date" onChange={setDate} />
         </label>
         <label htmlFor="time">
           Set your time
-          <input
-            name="time"
-            id="time"
-            type="time"
-            onChange={handleTimeChange}
-          />
+          <input name="time" id="time" type="time" onChange={setTime} />
         </label>
         <br />
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" onClick={setLoading} />
       </form>
-      <div className="display">
-        <h2>Water Depth of the Location</h2>
-      </div>
+      <div className="display"></div>
     </div>
   );
 };
